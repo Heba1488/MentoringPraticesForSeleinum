@@ -35,4 +35,5 @@ Whether you’re a beginner exploring Selenium for the first time or an experien
 ## 🚀 How to Run
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/selenium-junit-learning.git
+   git clone https://github.com/Heba1488/MentoringPraticesForSeleinum.git
+ 
