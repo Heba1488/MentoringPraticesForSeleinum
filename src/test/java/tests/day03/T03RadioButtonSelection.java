@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
+import java.util.List;
 
 public class T03RadioButtonSelection {
 
@@ -34,23 +35,46 @@ public class T03RadioButtonSelection {
     }
 
     @Test
-    void testRadioButtons(){
-        WebElement yesOption = driver.findElement(By.id("yesRadio"));
-        yesOption.click();
-        Assertions.assertTrue(yesOption.isSelected());
-        WebElement noOption = driver.findElement(By.id("noRadio"));
-       /* noOption.click();
-        Assertions.assertFalse(noOption.isSelected());*/
-       // WebElement impressiveRadio = driver.findElement(By.cssSelector());
-       // impressiveRadio.click();
-       // Assertions.assertTrue(impressiveRadio.isSelected());
-   ////input[@class='radioclass']
-    }
+    void testRadioButtons() {
 
-    @AfterEach
-    public void tearDown() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.quit();
-    }
 
-}
+//        Attempts to select each radio button (Yes, Impressive, No)
+            By yesRadioButton = By.xpath("//p/input");
+            By impressiveRadioButton = By.xpath("(//p/input)[2]");
+            By noRadioButton = By.xpath("(//p/input)[3]");
+
+            List<WebElement> checkBoxes = driver.findElements(yesRadioButton);
+
+            for (WebElement checkBox : checkBoxes) {
+                checkBox.click();
+                Assertions.assertTrue(checkBox.isSelected());
+            }
+
+
+            driver.findElement(yesRadioButton).click();
+            System.out.println(driver.findElement(yesRadioButton).isSelected());
+            System.out.println(driver.findElement(impressiveRadioButton).isSelected());
+            System.out.println(driver.findElement(noRadioButton).isSelected());
+
+
+            driver.findElement(impressiveRadioButton).click();
+            System.out.println(driver.findElement(yesRadioButton).isSelected());
+            System.out.println(driver.findElement(impressiveRadioButton).isSelected());
+            System.out.println(driver.findElement(noRadioButton).isSelected());
+
+            driver.findElement(noRadioButton).click();
+            System.out.println(driver.findElement(yesRadioButton).isSelected());
+            System.out.println(driver.findElement(impressiveRadioButton).isSelected());
+            System.out.println(driver.findElement(noRadioButton).isSelected());
+
+
+        }
+
+
+        @AfterEach
+        public void tearDown () throws InterruptedException {
+            Thread.sleep(3000);
+            driver.quit();
+        }
+
+    }
