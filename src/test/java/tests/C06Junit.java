@@ -3,6 +3,7 @@ package tests;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utilities.TestBase;
 
 // Go to google homepage
 // Do the following tasks by creating 3 different test methods.
@@ -13,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 // Test if the URL contains "google"
 public class C06Junit
 {
-    WebDriver driver;
+   WebDriver driver;
     String url = "https://www.google.com";
 
 
@@ -45,7 +46,7 @@ public class C06Junit
         Assertions.assertTrue(driver.getCurrentUrl().toLowerCase().contains("google"));
     }
 
-    @BeforeEach
+   @BeforeEach
     void setUp(){
         System.out.println("Test is being executed ....");
         driver = new ChromeDriver();
