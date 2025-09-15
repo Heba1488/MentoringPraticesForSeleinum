@@ -1,9 +1,16 @@
 package tests;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utilities.TestBase;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class C04GetAdjustSizeScreen
 {
@@ -39,4 +46,24 @@ public static void main(String[] args) throws InterruptedException
     //driver.close();
     driver.quit();
 }
+
+    public static class C37DownloadFile extends TestBase {
+          /*
+    Go to URL: https://the-internet.herokuapp.com/download
+        Download selenium-login_exeption.png
+        Verify if the file downloaded successfully.
+    */
+
+        @Test
+        public void FileDownLoadTest() {
+            By seleniumSnapLinkText = By.linkText("selenium-snapshot.png");
+            //Go to URL: https://the-internet.herokuapp.com/download
+            driver.get(" https://the-internet.herokuapp.com/download");
+            //Download selenium-snapshot.png
+              driver.findElement(seleniumSnapLinkText).click();
+              String filePath ="C:\\Users\\hp\\Downloads\\selenium-snapshot.png";
+            //Verify if the file downloaded successfully
+            Assertions.assertTrue(Files.exists(Paths.get(filePath)));
+        }
+    }
 }

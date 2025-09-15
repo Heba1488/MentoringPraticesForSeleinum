@@ -29,7 +29,7 @@ Verify the link 'https://claruswaysda.github.io/index.html'
         String mainWindow = driver.getWindowHandle();
         driver.findElement(By.linkText("Window Handle")).click();
 
-        //  (windowhandle.html)
+
         for (String handle : driver.getWindowHandles()) {
             if (!handle.equals(mainWindow)) {
                 driver.switchTo().window(handle);

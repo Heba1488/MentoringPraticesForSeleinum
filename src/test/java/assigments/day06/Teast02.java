@@ -26,9 +26,9 @@ Go to URL: http://demo.guru99.com/test/guru99home/
         int frameCount = driver.findElements(By.tagName("iframe")).size();
         //Switch to the third iframe (JMeter Made Easy)
        // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        driver.switchTo().frame(2);
+        driver.switchTo().frame("a077aa5e");
         //Click the link (https://www.guru99.com/live-selenium-project.html)
-        driver.findElement(By.xpath("//a[@href='https://www.guru99.com/live-selenium-project.html']")).click();
+        driver.findElement(By.tagName("a")).click();
 
 
         //Exit the iframe and return to the main page
